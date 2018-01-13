@@ -1,0 +1,10 @@
+# `firefox` environment config goes here
+modules:
+  config:
+    WebDriver:
+      # headless chrome is launched in the projects docker-compose.yml
+      host: firefox-standalone
+      browser: firefox
+      window_size: 1920x1280
+      capabilities:
+        unexpectedAlertBehaviour: 'accept'

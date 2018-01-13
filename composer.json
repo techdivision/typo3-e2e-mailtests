@@ -1,0 +1,18 @@
+{
+    "name": "techdivision/barcamp-mitteldeutschland",
+    "require": {
+        "jjpmann/php-hosts-manager": "^0.0.10"
+    },
+    "authors": [
+        {
+            "name": "Andreas Kiessling",
+            "email": "a.kiessling@techdivision.com"
+        }
+    ],
+    "scripts": {
+        "setup": "source .env && sudo ifconfig lo0 alias $PROJECT_IP 255.255.255.0",
+        "post-install-cmd": "source .env && hosts add barcamp.test $PROJECT_IP",
+        "install-project": "composer install -d=./webapp/htdocs/ && composer install -d=./mailtests/",
+        "backup-mysql": "docker exec barcamp_mysql /usr/bin/mysqldump -ucms -pcms cms | gzip > ./docker/mysql/docker-entrypoint-initdb.d/cms.sql.gz"
+    }
+}

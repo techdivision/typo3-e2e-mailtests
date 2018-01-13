@@ -1,0 +1,173 @@
+version: "3.1"
+
+volumes:
+  # persistent storage of mysql data, "docker volume ls" should show a container named barcamp_mysql-data
+  mysql-data:
+
+networks:
+  test:
+    driver: bridge
+
+services:
+  web:
+    container_name: ${COMPOSE_PROJECT_NAME}_web
+    build: ./docker/web/
+    image: ${COMPOSE_PROJECT_NAME}_web
+    networks:
+      - test
+    working_dir: /var/www/mailtests
+    depends_on:
+      - mysql
+    ports:
+      - "${PROJECT_IP}:80:80"
+      - "${PROJECT_IP}:443:443"
+    volumes:
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+      - ./docker/php/php-ini-overrides.ini:/etc/php/7.0/fpm/conf.d/99-overrides.ini
+      - ./webapp/htdocs:/var/www/htdocs
+      - ./mailtests:/var/www/mailtests
+
+# optional: configure TYPO3 SwiftMailer to use smtp at "mailhog:1025" to use this container (see AdditionalConfiguration.php),
+# use the web interface at port 8025 to check for mails
+#  mailhog:
+#    image: mailhog/mailhog
+#    networks:
+#      - test
+#    container_name: ${COMPOSE_PROJECT_NAME}_mailhog
+#    ports:
+#      - "${PROJECT_IP}:8025:8025"
+#      - "${PROJECT_IP}:1025:1025"
+#    logging:
+#      driver: none
+
+  mysql:
+    image: mysql:5.7
+    networks:
+      - test
+    container_name: ${COMPOSE_PROJECT_NAME}_mysql
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci --init-connect='SET NAMES UTF8;' --innodb-flush-log-at-trx-commit=0
+    ports:
+      - "${PROJECT_IP}:3306:3306"
+    volumes:
+        - .:/application
+        - mysql-data:/var/lib/mysql
+        - ./docker/mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=cms
+      - MYSQL_USER=cms
+      - MYSQL_PASSWORD=cms
+
+# optional, inspect the database at port barcamp.test:8000, log in with cms/cms
+#  phpmyadmin:
+#    image: phpmyadmin/phpmyadmin
+#    networks:
+#      - test
+#    container_name: ${COMPOSE_PROJECT_NAME}_phpmyadmin
+#    ports:
+#      - "${PROJECT_IP}:8000:80"
+#    depends_on:
+#      - mysql
+#    environment:
+#      PMA_HOST: mysql
+#    logging:
+#      driver: none
+
+  imap:
+    image: antespi/docker-imap-devel:latest
+    networks:
+      - test
+    container_name: ${COMPOSE_PROJECT_NAME}_imap
+    ports:
+      - "${PROJECT_IP}:25:25"
+      - "${PROJECT_IP}:143:143"
+      - "${PROJECT_IP}:993:993"
+    environment:
+      - MAILNAME=example.org
+      # this enables a login with debug@example.org/debug on http://barcamp.test:81/
+
+  roundcube:
+    image: robbertkl/roundcube
+    networks:
+      - test
+    container_name: ${COMPOSE_PROJECT_NAME}_roundcube
+    ports:
+      - "${PROJECT_IP}:81:80"
+    depends_on:
+      - imap
+    volumes:
+      - ./docker/roundcube:/var/www/db
+    environment:
+      - ROUNDCUBE_DEFAULT_HOST=ssl://imap:993
+      - ROUNDCUBE_SMTP_SERVER=ssl://imap
+
+
+  firefox:
+    image: selenium/node-firefox:3.4.0
+    environment:
+      HUB_PORT_4444_TCP_ADDR: hub
+      HUB_PORT_4444_TCP_PORT: 4444
+      HUB_HOST: hub
+    networks:
+      - test
+    shm_size: 2g
+    links:
+      - web:barcamp.test
+    depends_on:
+      - hub
+
+  chrome:
+    image: selenium/node-chrome:3.8.1
+    environment:
+      HUB_PORT_4444_TCP_ADDR: hub
+      HUB_PORT_4444_TCP_PORT: 4444
+      HUB_HOST: hub
+    networks:
+      - test
+    shm_size: 2g
+    links:
+      - web:barcamp.test
+    depends_on:
+      - hub
+
+  # watch the config of the hub at http://10.0.0.171:4444/grid/console
+  hub:
+    image: selenium/hub:3.8.1
+    container_name: ${COMPOSE_PROJECT_NAME}_selenium
+    networks:
+      - test
+    environment:
+      GRID_MAX_SESSION: 15
+      GRID_BROWSER_TIMEOUT: 100000
+      GRID_TIMEOUT: 90000
+      GRID_NEW_SESSION_WAIT_TIMEOUT: 300000
+
+    links:
+      - "web:barcamp.test"
+    ports:
+      - "${PROJECT_IP}:4444:4444"
+
+  firefox-standalone:
+    image: selenium/standalone-firefox:3.4.0
+    container_name: ${COMPOSE_PROJECT_NAME}_firefox
+    networks:
+      - test
+    shm_size: 2g
+    links:
+      - web:barcamp.test
+    ports:
+      - "${PROJECT_IP}:4445:4444"
+
+  chrome-standalone:
+    image: selenium/standalone-chrome:3.8.1
+    container_name: ${COMPOSE_PROJECT_NAME}_chrome
+    networks:
+      - test
+    environment:
+      # getting errors with firefox https://github.com/facebook/php-webdriver/issues/468 - gecko does not implement full w3c specs
+      SE_OPTS: "-enablePassThrough false"
+    shm_size: 2g
+    links:
+      - "web:barcamp.test"
+    ports:
+      - "${PROJECT_IP}:4446:4444"

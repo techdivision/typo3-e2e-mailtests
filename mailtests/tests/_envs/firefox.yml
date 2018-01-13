@@ -1,0 +1,8 @@
+# `firefox` environment config goes here
+modules:
+  config:
+    WebDriver:
+      browser: firefox
+      window_size: 1920x1280
+      capabilities:
+        unexpectedAlertBehaviour: 'accept'

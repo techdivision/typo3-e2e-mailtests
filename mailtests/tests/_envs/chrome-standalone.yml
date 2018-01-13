@@ -1,0 +1,12 @@
+# `firefox` environment config goes here
+modules:
+  config:
+    WebDriver:
+      # headless chrome is launched in the projects docker-compose.yml
+      host: chrome-standalone
+      browser: chrome
+      window_size: 1920x1280
+      capabilities:
+        goog:chromeOptions: # additional chrome options
+          args:
+            - user-agent=BarCamp Demo
