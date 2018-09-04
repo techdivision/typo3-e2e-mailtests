@@ -2664,12 +2664,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/codeception-email-imap.git",
-                "reference": "9456b170b9a3658d62a420d9590066b0cae3d9b1"
+                "reference": "53d578a72bfcf235042761a8b4bc769fc5f6498b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/codeception-email-imap/zipball/9456b170b9a3658d62a420d9590066b0cae3d9b1",
-                "reference": "9456b170b9a3658d62a420d9590066b0cae3d9b1",
+                "url": "https://api.github.com/repos/techdivision/codeception-email-imap/zipball/53d578a72bfcf235042761a8b4bc769fc5f6498b",
+                "reference": "53d578a72bfcf235042761a8b4bc769fc5f6498b",
                 "shasum": ""
             },
             "require": {
@@ -2698,7 +2698,7 @@
                 "source": "https://github.com/techdivision/codeception-email-imap/tree/master",
                 "issues": "https://github.com/techdivision/codeception-email-imap/issues"
             },
-            "time": "2018-09-04T12:06:48+00:00"
+            "time": "2018-09-04T12:13:21+00:00"
         },
         {
             "name": "theseer/tokenizer",
