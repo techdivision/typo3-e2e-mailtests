@@ -36,7 +36,7 @@ docker-compose up -d
 ```
 
 TYPO3 can now be accessed at http://t3mail.test/, a database dump will be automatically imported when the MySQL container is initialized.
- 
+The roundcube webmail gui can be accessed via http://t3mail.test:81. Username: debug@example.org, PW: debug   
 
 ## Running the tests
 
