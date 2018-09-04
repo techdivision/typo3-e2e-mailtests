@@ -4,4 +4,5 @@ webapp/htdocs/Web/typo3conf/ext
 webapp/htdocs/Web/typo3temp
 docker/roundcube/sqlite.db
 mailtests/tests/_output
+_generated
 ENABLE_INSTALL_TOOL
