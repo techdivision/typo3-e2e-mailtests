@@ -13,9 +13,9 @@
     "typo3/cms": "^8.7",
     "helhum/typo3-console": "^4.4",
     "bk2k/bootstrap-package": "^9.1",
-    "dmitryd/typo3-realurl": "^2.3",
     "typo3-ter/static-info-tables": "^6.5",
-    "techdivision/td-mailredirect": "dev-master"
+    "techdivision/td-mailredirect": "dev-master",
+    "helhum/realurl": "^2.1"
   },
   "autoload": {
     "psr-4": {"TechDivision\\TdMailredirect\\": "Web/typo3conf/ext/td_mailredirect/Classes/"}

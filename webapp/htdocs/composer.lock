@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ed41a2d5ca2d4dcd5d12b913f6906c81",
+    "content-hash": "1aa41395ebf1742938db98fcff1a1ff1",
     "packages": [
         {
             "name": "bk2k/bootstrap-package",
@@ -120,73 +120,6 @@
                 "text"
             ],
             "time": "2014-05-19T10:25:02+00:00"
-        },
-        {
-            "name": "dmitryd/typo3-realurl",
-            "version": "2.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dmitryd/typo3-realurl.git",
-                "reference": "4492e57ddaeda062ef802e840ffb02bab24816f9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dmitryd/typo3-realurl/zipball/4492e57ddaeda062ef802e840ffb02bab24816f9",
-                "reference": "4492e57ddaeda062ef802e840ffb02bab24816f9",
-                "shasum": ""
-            },
-            "require": {
-                "ext-mbstring": "*",
-                "php": ">=5.4.0,<7.3.0",
-                "typo3/cms-core": ">=6.2.0,<9.0.0"
-            },
-            "conflict": {
-                "bednee/cooluri": ">0.0.1",
-                "helhum/realurl": ">0.0.1",
-                "typo3-ter/cooluri": ">=0.0.1",
-                "typo3-ter/simulatestatic": ">0.0.1"
-            },
-            "replace": {
-                "realurl": "self.version",
-                "typo3-ter/realurl": "self.version"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.8.0"
-            },
-            "suggest": {
-                "typo3-ter/static-info-tables": ">=6.2.0"
-            },
-            "type": "typo3-cms-extension",
-            "extra": {
-                "typo3/cms": {
-                    "cms-package-dir": "{$vendor-dir}/typo3/cms",
-                    "web-dir": ".Build/Web"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "DmitryDulepov\\Realurl\\": "Classes"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Dmitry Dulepov",
-                    "email": "dmitry.dulepov@gmail.com",
-                    "homepage": "http://www.dmitry-dulepov.com/"
-                }
-            ],
-            "description": "Speaking URLs for TYPO3",
-            "homepage": "https://github.com/dmitryd/typo3-realurl",
-            "keywords": [
-                "RealURL",
-                "cms",
-                "typo3"
-            ],
-            "time": "2018-07-09T00:00:00+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -892,6 +825,45 @@
                 "url"
             ],
             "time": "2017-03-20T17:10:46+00:00"
+        },
+        {
+            "name": "helhum/realurl",
+            "version": "2.1.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/helhum/realurl.git",
+                "reference": "70724a53a26b46b9f7addb02dd34b3b78af3f27a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/helhum/realurl/zipball/70724a53a26b46b9f7addb02dd34b3b78af3f27a",
+                "reference": "70724a53a26b46b9f7addb02dd34b3b78af3f27a",
+                "shasum": ""
+            },
+            "require": {
+                "typo3/cms-core": "^6.2.6 || ^7.6 || >=8.0.0 <8.8"
+            },
+            "replace": {
+                "realurl": "self.version"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tx\\Realurl\\": "Classes"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "RealURL: speaking paths for TYPO3",
+            "homepage": "http://typo3.org",
+            "time": "2017-09-25T10:29:07+00:00"
         },
         {
             "name": "helhum/typo3-console",

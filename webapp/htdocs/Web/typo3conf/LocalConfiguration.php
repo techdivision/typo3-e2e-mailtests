@@ -3,7 +3,7 @@ return [
     'BE' => [
         'debug' => false,
         'explicitADmode' => 'explicitAllow',
-        'installToolPassword' => '$pbkdf2-sha256$25000$FhGAKf67yQFcNjX0u5VAgg$JuaY7mfI8izlKsOA39gzUp8VGtAacCKa0HMlbYbumSE',
+        'installToolPassword' => '$pbkdf2-sha256$25000$Pq7qdurVOoae79A6eZTW.g$E1RL.AjKKhdsHYPDc0jfK.JQ0ACqYshFhNa4r0fUnwA',
         'loginSecurityLevel' => 'rsa',
     ],
     'DB' => [
@@ -23,7 +23,7 @@ return [
         'extConf' => [
             'bootstrap_package' => 'a:7:{s:16:"disablePageTsRTE";s:1:"0";s:27:"disablePageTsBackendLayouts";s:1:"0";s:20:"disablePageTsTCEMAIN";s:1:"0";s:20:"disablePageTsTCEFORM";s:1:"0";s:30:"disablePageTsTtContentPreviews";s:1:"0";s:36:"disablePageTsNewContentElementWizard";s:1:"0";s:21:"disableLessProcessing";s:1:"0";}',
             'extension_builder' => 'a:3:{s:15:"enableRoundtrip";s:1:"1";s:15:"backupExtension";s:1:"1";s:9:"backupDir";s:35:"uploads/tx_extensionbuilder/backups";}',
-            'realurl' => 'a:6:{s:10:"configFile";s:26:"typo3conf/realurl_conf.php";s:14:"enableAutoConf";s:1:"1";s:14:"autoConfFormat";s:1:"1";s:17:"segTitleFieldList";s:0:"";s:12:"enableDevLog";s:1:"0";s:10:"moduleIcon";s:1:"0";}',
+            'realurl' => 'a:7:{s:10:"configFile";s:26:"typo3conf/realurl_conf.php";s:14:"enableAutoConf";s:1:"1";s:12:"enableDevLog";s:1:"0";s:19:"enableChashUrlDebug";s:1:"0";s:14:"autoConfFormat";s:1:"1";s:17:"segTitleFieldList";s:0:"";s:10:"moduleIcon";s:1:"0";}',
             'rsaauth' => 'a:1:{s:18:"temporaryDirectory";s:0:"";}',
             'saltedpasswords' => 'a:2:{s:3:"BE.";a:4:{s:21:"saltedPWHashingMethod";s:41:"TYPO3\\CMS\\Saltedpasswords\\Salt\\Pbkdf2Salt";s:11:"forceSalted";i:0;s:15:"onlyAuthService";i:0;s:12:"updatePasswd";i:1;}s:3:"FE.";a:5:{s:7:"enabled";i:1;s:21:"saltedPWHashingMethod";s:41:"TYPO3\\CMS\\Saltedpasswords\\Salt\\Pbkdf2Salt";s:11:"forceSalted";i:0;s:15:"onlyAuthService";i:0;s:12:"updatePasswd";i:1;}}',
             'static_info_tables' => 'a:1:{s:13:"enableManager";s:1:"0";}',

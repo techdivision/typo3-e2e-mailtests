@@ -1,30 +1,31 @@
 <?php
-$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl']=array (
-  '_DEFAULT' =>
-  array (
-    'init' =>
-    array (
-      'appendMissingSlash' => 'ifNotFile,redirect',
-      'emptyUrlReturnValue' => '/',
-    ),
-    'pagePath' =>
-    array (
-      'rootpage_id' => '1',
-    ),
-    'fileName' =>
-    array (
-      'defaultToHTMLsuffixOnPrev' => 0,
-      'acceptHTMLsuffix' => 0,
-      'index' =>
-      array (
-        'print' =>
-        array (
-          'keyValues' =>
-          array (
-            'type' => 98,
-          ),
-        ),
-      ),
-    ),
-  ),
-);
+$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl']=[
+    '_DEFAULT' => [
+        'init' => [
+            'enableCHashCache' => true,
+            'appendMissingSlash' => 'ifNotFile,redirect',
+            'adminJumpToBackend' => true,
+            'enableUrlDecodeCache' => true,
+            'enableUrlEncodeCache' => true,
+            'emptyUrlReturnValue' => '/',
+        ],
+        'pagePath' => [
+            'type' => 'user',
+            'userFunc' => 'Tx\\Realurl\\UriGeneratorAndResolver->main',
+            'spaceCharacter' => '-',
+            'languageGetVar' => 'L',
+            'rootpage_id' => '1',
+        ],
+        'fileName' => [
+            'defaultToHTMLsuffixOnPrev' => 0,
+            'acceptHTMLsuffix' => 1,
+            'index' => [
+                'print' => [
+                    'keyValues' => [
+                        'type' => 98,
+                    ],
+                ],
+            ],
+        ],
+    ],
+];
