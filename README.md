@@ -1,7 +1,7 @@
 # TYPO3 8.7 setup for automated mail tests
 
 This repository contains a fully configured environment for TYPO3 to run mail tests with Codeception against an imap server.
-Log in to the TYPO3 instance with admin/password at http://barcamp.test/typo3/
+Log in to the TYPO3 instance with admin/password at http://t3mail.test/typo3/
 
 ## Setting up the project
 
@@ -15,7 +15,7 @@ or run `sudo ifconfig lo0 alias 10.0.0.171 255.255.255.0` manually.
 
 Add the hostname/ip mapping to your /etc/hosts file 
 ```
-10.0.0.171 barcamp.test
+10.0.0.171 t3mail.test
 ```
 or use `composer install` and the post-install-cmd to do that.
 
@@ -35,15 +35,15 @@ Start the containers with docker-compose, have a look at the docker-compose.yml 
 docker-compose up -d
 ```
 
-TYPO3 can now be accessed at http://barcamp.test/, a database dump will be automatically imported when the MySQL container is initialized.
- 
+TYPO3 can now be accessed at http://t3mail.test/, a database dump will be automatically imported when the MySQL container is initialized.
+The roundcube webmail gui can be accessed via http://t3mail.test:81. Username: debug@example.org, PW: debug   
 
 ## Running the tests
 
 The imap tests require the php-imap module. This behaves buggy when installed via Homebrew on OSX, thus the web container is also used for executing Codeception.   
 
 ```
-docker exec -it barcamp_web bash
+docker exec -it t3mailtest_web bash
 ```
 
 You should end up in `/var/www/mailtests` where you can run the tests with chrome and firefox like so:

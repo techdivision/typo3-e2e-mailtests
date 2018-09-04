@@ -11,8 +11,8 @@ modules:
       - \Helper\Acceptance
   config:
     WebDriver:
-      url: 'http://barcamp.test/'
+      url: 'http://t3mail.test/'
       host: 'hub'
       # for the interactive console, browser and url need to be set here
       browser: chrome
-      url: http://barcamp.test
+      url: http://t3mail.test

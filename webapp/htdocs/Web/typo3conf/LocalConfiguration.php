@@ -74,7 +74,7 @@ return [
         'exceptionalErrors' => 20480,
         'isInitialDatabaseImportDone' => true,
         'isInitialInstallationInProgress' => false,
-        'sitename' => 'BarCamp Mitteldeutschland Demo',
+        'sitename' => 'E2E Mailtest Demo',
         'sqlDebug' => 0,
         'systemLogLevel' => 5,
         'trustedHostsPattern' => '.*',

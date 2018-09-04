@@ -4,7 +4,7 @@ modules:
     - ImapMail
   config:
     WebDriver:
-      url: 'http://barcamp.test/'
+      url: 'http://t3mail.test/'
       host: 'hub'
     ImapMail:
       imapUser: debug@example.org
