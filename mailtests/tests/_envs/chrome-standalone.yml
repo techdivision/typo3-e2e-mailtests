@@ -9,4 +9,4 @@ modules:
       capabilities:
         goog:chromeOptions: # additional chrome options
           args:
-            - user-agent=BarCamp Demo
+            - user-agent=T3Mailtest Demo

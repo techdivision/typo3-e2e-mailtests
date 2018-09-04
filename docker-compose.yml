@@ -1,7 +1,7 @@
 version: "3.1"
 
 volumes:
-  # persistent storage of mysql data, "docker volume ls" should show a container named barcamp_mysql-data
+  # persistent storage of mysql data, "docker volume ls" should show a container named t3mailtest_mysql-data
   mysql-data:
 
 networks:
@@ -58,7 +58,7 @@ services:
       - MYSQL_USER=cms
       - MYSQL_PASSWORD=cms
 
-# optional, inspect the database at port barcamp.test:8000, log in with cms/cms
+# optional, inspect the database at port t3mail.test:8000, log in with cms/cms
 #  phpmyadmin:
 #    image: phpmyadmin/phpmyadmin
 #    networks:
@@ -84,7 +84,7 @@ services:
       - "${PROJECT_IP}:993:993"
     environment:
       - MAILNAME=example.org
-      # this enables a login with debug@example.org/debug on http://barcamp.test:81/
+      # this enables a login with debug@example.org/debug on http://t3mail.test:81/
 
   roundcube:
     image: robbertkl/roundcube
@@ -112,7 +112,7 @@ services:
       - test
     shm_size: 2g
     links:
-      - web:barcamp.test
+      - web:t3mail.test
     depends_on:
       - hub
 
@@ -126,7 +126,7 @@ services:
       - test
     shm_size: 2g
     links:
-      - web:barcamp.test
+      - web:t3mail.test
     depends_on:
       - hub
 
@@ -143,7 +143,7 @@ services:
       GRID_NEW_SESSION_WAIT_TIMEOUT: 300000
 
     links:
-      - "web:barcamp.test"
+      - "web:t3mail.test"
     ports:
       - "${PROJECT_IP}:4444:4444"
 
@@ -154,7 +154,7 @@ services:
       - test
     shm_size: 2g
     links:
-      - web:barcamp.test
+      - web:t3mail.test
     ports:
       - "${PROJECT_IP}:4445:4444"
 
@@ -168,6 +168,6 @@ services:
       SE_OPTS: "-enablePassThrough false"
     shm_size: 2g
     links:
-      - "web:barcamp.test"
+      - "web:t3mail.test"
     ports:
       - "${PROJECT_IP}:4446:4444"
