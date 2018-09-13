@@ -15,4 +15,3 @@ modules:
       host: 'hub'
       # for the interactive console, browser and url need to be set here
       browser: chrome
-      url: http://t3mail.test

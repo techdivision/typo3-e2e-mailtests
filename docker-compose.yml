@@ -112,7 +112,8 @@ services:
       - test
     shm_size: 2g
     links:
-      - web:t3mail.test
+      - "web:t3mail.test"
+      - "web:external.t3mail.test"
     depends_on:
       - hub
 
@@ -126,7 +127,8 @@ services:
       - test
     shm_size: 2g
     links:
-      - web:t3mail.test
+      - "web:t3mail.test"
+      - "web:external.t3mail.test"
     depends_on:
       - hub
 
@@ -144,6 +146,7 @@ services:
 
     links:
       - "web:t3mail.test"
+      - "web:external.t3mail.test"
     ports:
       - "${PROJECT_IP}:4444:4444"
 
@@ -154,7 +157,8 @@ services:
       - test
     shm_size: 2g
     links:
-      - web:t3mail.test
+      - "web:t3mail.test"
+      - "web:external.t3mail.test"
     ports:
       - "${PROJECT_IP}:4445:4444"
 
@@ -169,5 +173,6 @@ services:
     shm_size: 2g
     links:
       - "web:t3mail.test"
+      - "web:external.t3mail.test"
     ports:
       - "${PROJECT_IP}:4446:4444"

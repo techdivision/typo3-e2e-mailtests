@@ -1,0 +1,21 @@
+# `local` environment config goes here
+modules:
+  enabled:
+    - ImapMail
+    - WebDriver
+  config:
+    WebDriver:
+      url: 'http://external.t3mail.test/'
+    ImapMail:
+      imapUser: %GMAIL_USER%
+      imapPassword: %GMAIL_PASSWORD%
+      imapServer: imap.gmail.com
+      imapFlags: /imap/ssl/novalidate-cert
+      imapPort: 993
+      imapRetry:
+        limit: 10
+        wait: 10000
+
+      # since the tests clean the inbox before running, this should only be needed,
+      # if you want to implement some archiving for e.g. failed tests
+      deleteEmailsAfterScenario: false
