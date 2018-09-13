@@ -1,4 +1,3 @@
-# `local` environment config goes here
 modules:
   enabled:
     - ImapMail
