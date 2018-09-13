@@ -70,4 +70,25 @@ You should end up in `/var/www/mailtests` where you can run the tests with chrom
 ```
 
 
-`--env local,BROWSER` merges the two configuration files from `tests/_envs`, so local could also be switched against a configuration with an external web host and imap server. 
+`--env local,BROWSER` merges the two configuration files from `tests/_envs`, so local could also be switched against a configuration with an external web host and imap server.
+
+# Running tests with external mail providers
+
+## Configuration
+
+### Codeception
+
+* Add the proper crecentials to `mailtests/credentials`, see the provided .dist files. DON'T USE YOUR PRIVATE ACCOUNT! Mails will be deleted!
+* Uncomment loading these files in the main codeception configuration: `mailtests/codeception.yml`
+* See `mailtests/tests/acceptance/ExternalMailTestCest.php` what will be executed
+* Run the tests with 
+```
+ vendor/bin/codecept run acceptance  --steps --env chrome-standalone,gmail -vvv
+ vendor/bin/codecept run acceptance  --steps --env chrome-standalone,yandex -vvv
+```
+
+### TYPO3
+
+* Adjust the TYPO3 mail configuration in `webapp/htdocs/Web/typo3conf/AdditionalConfiguration.php`
+* Caution: this will send out real mails! Make sure to set proper recipients or redirect them 
+* Create a page `Form external` in the page tree and configure a form that will be sent out to your configured mail account
