@@ -1609,12 +1609,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/typo3-td_mailredirect.git",
-                "reference": "76cc824f08b12678548c5eb91eaf7cce8f3e1f85"
+                "reference": "a3d28572bbf0a4795050ed0087fa4d6093c6be3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/typo3-td_mailredirect/zipball/76cc824f08b12678548c5eb91eaf7cce8f3e1f85",
-                "reference": "76cc824f08b12678548c5eb91eaf7cce8f3e1f85",
+                "url": "https://api.github.com/repos/techdivision/typo3-td_mailredirect/zipball/a3d28572bbf0a4795050ed0087fa4d6093c6be3d",
+                "reference": "a3d28572bbf0a4795050ed0087fa4d6093c6be3d",
                 "shasum": ""
             },
             "require": {
@@ -1624,6 +1624,11 @@
             "autoload": {
                 "psr-4": {
                     "TechDivision\\TdMailredirect\\": "Classes"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "TechDivision\\TdMailredirect\\Tests\\": "Tests"
                 }
             },
             "authors": [
@@ -1637,7 +1642,7 @@
                 "source": "https://github.com/techdivision/typo3-td_mailredirect/tree/master",
                 "issues": "https://github.com/techdivision/typo3-td_mailredirect/issues"
             },
-            "time": "2018-01-24T21:20:49+00:00"
+            "time": "2018-09-10T11:36:59+00:00"
         },
         {
             "name": "typo3-ter/static-info-tables",

@@ -17,6 +17,7 @@ class FormTestCest
     /**
      * @param \AcceptanceTester $I
      * @throws \Exception
+     * @env local
      */
     public function tryToTest(AcceptanceTester $I)
     {

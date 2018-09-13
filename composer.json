@@ -11,7 +11,7 @@
     ],
     "scripts": {
         "setup": "source .env && sudo ifconfig lo0 alias $PROJECT_IP 255.255.255.0",
-        "post-install-cmd": "source .env && hosts add t3mail.test $PROJECT_IP",
+        "post-install-cmd": "source .env && hosts add $DOMAIN $PROJECT_IP && hosts add $DOMAIN_EXTERNAL_MAIL $PROJECT_IP",
         "install-project": "composer install -d webapp/htdocs/ --ignore-platform-reqs && composer install -d mailtests/ --ignore-platform-reqs",
         "backup-mysql": "docker exec t3mailtest_mysql /usr/bin/mysqldump -ucms -pcms cms | gzip > ./docker/mysql/docker-entrypoint-initdb.d/cms.sql.gz"
     }

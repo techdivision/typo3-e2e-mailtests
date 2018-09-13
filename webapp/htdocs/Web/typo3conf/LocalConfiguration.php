@@ -3,7 +3,7 @@ return [
     'BE' => [
         'debug' => false,
         'explicitADmode' => 'explicitAllow',
-        'installToolPassword' => '$pbkdf2-sha256$25000$Pq7qdurVOoae79A6eZTW.g$E1RL.AjKKhdsHYPDc0jfK.JQ0ACqYshFhNa4r0fUnwA',
+        'installToolPassword' => '$pbkdf2-sha256$25000$vHa4UpcFP5dkJWw.lKzORw$NM94S0Egaj.4EpZviuUZDkra0LIy9DQfoENtCCh87uc',
         'loginSecurityLevel' => 'rsa',
     ],
     'DB' => [
@@ -27,7 +27,7 @@ return [
             'rsaauth' => 'a:1:{s:18:"temporaryDirectory";s:0:"";}',
             'saltedpasswords' => 'a:2:{s:3:"BE.";a:4:{s:21:"saltedPWHashingMethod";s:41:"TYPO3\\CMS\\Saltedpasswords\\Salt\\Pbkdf2Salt";s:11:"forceSalted";i:0;s:15:"onlyAuthService";i:0;s:12:"updatePasswd";i:1;}s:3:"FE.";a:5:{s:7:"enabled";i:1;s:21:"saltedPWHashingMethod";s:41:"TYPO3\\CMS\\Saltedpasswords\\Salt\\Pbkdf2Salt";s:11:"forceSalted";i:0;s:15:"onlyAuthService";i:0;s:12:"updatePasswd";i:1;}}',
             'static_info_tables' => 'a:1:{s:13:"enableManager";s:1:"0";}',
-            'td_mailredirect' => 'a:5:{s:12:"redirectRule";s:45:"mailtester+{local}-{domain}-{tld}@example.org";s:8:"testerIp";s:1:"*";s:9:"userAgent";s:0:"";s:15:"subjectTemplate";s:16:"[TEST] {subject}";s:14:"whitelistedIps";s:0:"";}',
+            'td_mailredirect' => 'a:6:{s:12:"redirectRule";s:45:"mailtester+{local}-{domain}-{tld}@example.org";s:8:"testerIp";s:1:"*";s:9:"userAgent";s:1:"*";s:20:"whitelistedAddresses";s:0:"";s:15:"subjectTemplate";s:16:"[TEST] {subject}";s:14:"whitelistedIps";s:0:"";}',
         ],
     ],
     'FE' => [
